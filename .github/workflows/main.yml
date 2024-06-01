@@ -28,7 +28,7 @@ jobs:
 
       - name: Git
         run: |
-          git add -A
+          ls -lh
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Data"
