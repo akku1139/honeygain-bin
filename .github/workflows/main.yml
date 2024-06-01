@@ -19,8 +19,8 @@ jobs:
       - run: apt -y install git
       - name: Config git
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global --add safe.directory $PWD
       - run: cp /app/honeygain /usr/lib/libhg.so* /usr/lib/libmsquic.so.2* .
 
