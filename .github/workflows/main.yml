@@ -18,6 +18,7 @@ jobs:
       - run: apt -y install git
       - run: git config --global --add safe.directory $PWD
       - run: cp /app/honeygain /usr/lib/libhg.so* /usr/lib/libmsquic.so.2* .
+      - run: ls
 
       - uses: actions/checkout@v4
 
