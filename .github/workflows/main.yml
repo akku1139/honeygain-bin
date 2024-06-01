@@ -28,8 +28,9 @@ jobs:
 
       - name: Git
         run: |
-          #if [ -n "$(git status --porcelain)" ]; then
+          git add -A
+          if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Data"
             git push
-          #fi
+          fi
