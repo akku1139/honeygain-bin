@@ -2,6 +2,7 @@ name: Repo
 
 on:
   workflow_dispatch:
+  push:
 
 permissions:
   contents: write
@@ -16,18 +17,19 @@ jobs:
     steps:
       - run: apt -y update
       - run: apt -y install git
-      - run: git config --global --add safe.directory $PWD
+      - name: Config git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global --add safe.directory $PWD
       - run: cp /app/honeygain /usr/lib/libhg.so* /usr/lib/libmsquic.so.2* .
-      - run: ls
 
       - uses: actions/checkout@v4
 
       - name: Git
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
+          #if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Data"
             git push
-          fi
+          #fi
