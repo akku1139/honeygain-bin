@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
      image: honeygain/honeygain:latest
+     options: --privileged
 
     steps:
       - run: |
