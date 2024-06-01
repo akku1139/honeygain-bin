@@ -11,11 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
      image: honeygain/honeygain:latest
-     options: --privileged
+     options: --privileged --user root
 
     steps:
       - run: |
-          # git config --global --add safe.directory $PWD
+          apt -y update
+          apt -y install git
+          git config --global --add safe.directory $PWD
           cp /app/honeygain /usr/lib/libhg.so* /usr/lib/libmsquic.so.2* .
 
       - uses: actions/checkout@v4
