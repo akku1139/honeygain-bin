@@ -14,8 +14,8 @@ jobs:
 
     steps:
       - run: |
-          apt-get -y update
-          apt-get -y install git
+          sudo apt-get -y update
+          sudo apt-get -y install git
           git config --global --add safe.directory $PWD
           cp /app/honeygain /usr/lib/libhg.so* /usr/lib/libmsquic.so.2* .
 
